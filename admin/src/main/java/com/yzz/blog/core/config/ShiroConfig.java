@@ -199,6 +199,12 @@ public class ShiroConfig {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
         sessionManager.setGlobalSessionTimeout(redisProperties.getExpire() * 1000L);
         sessionManager.setSessionDAO(redisSessionDAO());
+        // 此注释代码 就是将JSESSIONID变成自定义名称 WEBJSESSIONID
+        /*sessionManager.setSessionIdCookieEnabled(true);
+        SimpleCookie cookie = new SimpleCookie("WEBJSESSIONID");
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge(60 * 60 * 1000);
+        sessionManager.setSessionIdCookie(cookie);*/
         return sessionManager;
     }
 

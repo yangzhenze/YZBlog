@@ -45,7 +45,11 @@
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
                                         <#list item.nodes as node>
-                                        <li><a href="/type/${node.id?c}" title="点击查看《${node.name?if_exists}》的文章">${node.name?if_exists}</a></li>
+                                        <li>
+                                            <a href="/type/${node.id?c}" title="点击查看《${node.name?if_exists}》的文章">
+                                                <i class="${node.icon?if_exists}"></i>${node.name?if_exists}
+                                            </a>
+                                        </li>
                                         </#list>
                                     </ul>
                                 </li>

@@ -214,4 +214,10 @@ public enum ConfigKeyEnum {
 
     public String getKey() {
         return key;
-    }}
+    }
+
+    public static void main(String[] args) {
+        System.out.println(ConfigKeyEnum.UPDATE_TIME.key);
+    }
+
+}

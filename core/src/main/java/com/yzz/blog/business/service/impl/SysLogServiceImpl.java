@@ -57,7 +57,7 @@ public class SysLogServiceImpl implements SysLogService {
         return bean;
     }
 
-    @Async
+    //@Async
     @Override
     public void asyncSaveSystemLog(PlatformEnum platform, String bussinessName) {
         String ua = RequestUtil.getUa();

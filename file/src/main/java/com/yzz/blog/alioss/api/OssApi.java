@@ -52,7 +52,7 @@ public class OssApi {
                 throw new OssApiException("[阿里云OSS] 文件授权失败！文件不存在：" + bucketName + "/" + fileName);
             }
             // 设置URL过期时间为1小时
-            Date expiration = new Date(new Date().getTime() + expirationTime * 1000);
+            Date expiration = new Date(System.currentTimeMillis() + expirationTime * 1000);
             // 生成URL
             return this.client.generatePresignedUrl(bucketName, fileName, expiration).toString();
         } finally {

@@ -25,6 +25,9 @@ if(articleId){
                 if($('input[name=original]')){
                     $('input[name=original]').iCheck(info.original ? 'check' : 'uncheck');
                 }
+                if($('input[name=recommended]')){
+                    $('input[name=recommended]').iCheck(info.recommended ? 'check' : 'uncheck');
+                }
                 if($('#comment')){
                     $('#comment').iCheck(info.comment ? 'check' : 'uncheck');
                 }

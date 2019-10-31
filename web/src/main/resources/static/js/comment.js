@@ -1,11 +1,4 @@
-/**
- *
- * 评论插件(md版)
- *
- * @date 2018-01-05 10:57
- * @author zhyd(yadong.zhang0415#gmail.com)
- * @link https://www.zhyd.me
- */
+
 var _form = {
     valid: function(form){
         var valid = true;

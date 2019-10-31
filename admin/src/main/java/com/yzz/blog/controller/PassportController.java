@@ -24,6 +24,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 登录相关
  *
@@ -60,7 +62,7 @@ public class PassportController {
     @BussinessLog("[{1}]登录系统")
     @PostMapping("/signin")
     @ResponseBody
-    public ResponseVO submitLogin(String username, String password, boolean rememberMe, String kaptcha) {
+    public ResponseVO submitLogin(String username, String password, boolean rememberMe, String kaptcha, HttpServletRequest request) {
         if (config.isEnableKaptcha()) {
             if (StringUtils.isEmpty(kaptcha) || !kaptcha.equals(SessionUtil.getKaptcha())) {
                 return ResultUtil.error("验证码错误！");

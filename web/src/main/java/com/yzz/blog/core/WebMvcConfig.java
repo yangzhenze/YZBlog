@@ -12,13 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.Map;
 
-/**
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/11/19 9:39
- * @since 1.8
- */
+
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 

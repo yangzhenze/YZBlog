@@ -1,16 +1,9 @@
-/**
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @website https://www.zhyd.me
- * @version 1.0
- * @date 2017-04-01
- * @since 1.0
- */
+
 
 // 动态切换浏览器窗口title https://zhangge.net/
 jQuery(document).ready(function() {
     function c() {
-        document.title = document[a] ? "麻溜儿回来~~~ | " + d + "" : d
+        document.title = document[a] ? "你快回来~~~ | " + d + "" : d
     }
     var a, b, d = document.title;
     "undefined" != typeof document.hidden ? (a = "hidden", b = "visibilitychange") : "undefined" != typeof document.mozHidden ? (a = "mozHidden", b = "mozvisibilitychange") : "undefined" != typeof document.webkitHidden && (a = "webkitHidden", b = "webkitvisibilitychange");
@@ -203,9 +196,8 @@ $(function () {
     initNavbar();
     initArticeMenu();
     initScrollMenu();
-    console.log("%c生活真他妈好玩，因为生活老他妈玩我！", "color:green;font-size:20px;font-weight:blod");
+    console.log("%c看什么看，再看！再看！再看就有报错的信息了！！！", "color:blue;font-size:20px;font-weight:blod");
     console.groupEnd();
-    console.log("爱谁谁...");
 
     $('.scroll-t').toTop({
         //autohide: true,//返回顶部按钮是否自动隐藏。可以设置true或false。默认为true

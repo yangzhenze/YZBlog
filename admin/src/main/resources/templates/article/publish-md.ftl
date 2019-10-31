@@ -44,6 +44,13 @@
                                     </label>
                                 </div>
                             </div>
+                            <div class="col-md-1 col-sm-1 col-xs-1">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" class="square" name="recommended"> 推荐
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         <div class="item form-group">
                             <label class="control-label col-md-1 col-sm-1 col-xs-12" for="password">内容 <span class="required">*</span></label>

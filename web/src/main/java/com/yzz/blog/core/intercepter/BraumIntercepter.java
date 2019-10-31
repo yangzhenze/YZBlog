@@ -16,12 +16,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * braum，自动识别恶意请求
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/11/19 9:24
- * @since 1.8
  */
 @Component
 @Slf4j

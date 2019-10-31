@@ -12,8 +12,10 @@ import com.yzz.blog.business.service.SysUpdateRecordeService;
 import com.yzz.blog.business.vo.ArticleConditionVO;
 import com.yzz.blog.util.ResultUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,12 +26,6 @@ import java.util.Map;
 
 /**
  * 页面跳转类
- *
- * @author yadong.zhang (yadong.zhang0415(a)gmail.com)
- * @version 1.0
- * @website https://www.zhyd.me
- * @date 2018/4/18 11:48
- * @since 1.0
  */
 @Controller
 public class RenderController {
@@ -38,6 +34,8 @@ public class RenderController {
      */
     private static final int SIDEBAR_ARTICLE_SIZE = 8;
     private static final String INDEX_URL = "index";
+    private static final String REDIS_KEYWORD = "keywords";
+    private static final String REDIS_KEYWORD_SORT = "keywordsort";
 
     @Autowired
     private BizArticleService bizArticleService;
@@ -47,6 +45,8 @@ public class RenderController {
     private SysLinkService sysLinkService;
     @Autowired
     private SysUpdateRecordeService updateRecordeService;
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     /**
      * 加载首页的数据
@@ -61,6 +61,9 @@ public class RenderController {
         model.addAttribute("page", pageInfo);
         model.addAttribute("model", vo);
         model.addAttribute("indexLinkList", sysLinkService.listOfIndex());
+        model.addAttribute("keywordsort", redisTemplate.opsForZSet().reverseRangeByScore(REDIS_KEYWORD_SORT,0,100000,0,5));
+
+
     }
 
     /**
@@ -77,6 +80,20 @@ public class RenderController {
         long start = System.currentTimeMillis();
         loadIndexPage(vo, model);
         System.out.println("首页耗时：" + (System.currentTimeMillis() - start));
+
+        if(!StringUtils.isEmpty(vo.getKeywords())){
+            String keyword = vo.getKeywords().replace(" ","").toLowerCase();
+            Integer searchNum = (Integer) redisTemplate.opsForHash().get(REDIS_KEYWORD,keyword);
+
+            if(null == searchNum){
+                searchNum = 1;
+                redisTemplate.opsForHash().put(REDIS_KEYWORD,keyword,searchNum);
+            }else{
+                searchNum+=1;
+            }
+
+            redisTemplate.opsForZSet().add(REDIS_KEYWORD_SORT,keyword,searchNum);
+        }
 
         return ResultUtil.view(INDEX_URL);
     }

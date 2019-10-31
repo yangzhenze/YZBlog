@@ -13,15 +13,6 @@
         <div id="scrolldiv">
             <div class="scrolltext">
                 <ul class="list-unstyled" id="notice-box">
-                    <li class="scrolltext-title">
-                        <a href="javascript:void(0)" rel="bookmark">本站正式启用新域名:<a href="https:/www.zhyd.me" target="_blank"><strong>https:/www.zhyd.me</strong></a></a>
-                    </li>
-                    <li class="scrolltext-title">
-                        <a href="javascript:void(0)" rel="bookmark">活了二十多年，没能为祖国、为人民做点什么，每思及此，伤心欲绝。</a>
-                    </li>
-                    <li class="scrolltext-title">
-                        <a href="javascript:void(0)" rel="bookmark">其实我们可以将所有的问题归结为两种：一种是没饭吃饿出来的；一种是吃饱了撑出来的。</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -121,12 +112,10 @@
                         <div class="clear" style="margin-bottom: 10px"></div>
                         <ul class="list-unstyled list-inline search-hot">
                             <li><strong style="position: relative;top: 2px;color: #999999;">热门搜索：</strong></li>
-                            <li><a class="pointer" rel="external nofollow"><span class="label label-default">Java</span></a></li>
-                            <li><a class="pointer" rel="external nofollow"><span class="label label-primary">Springboot</span></a></li>
-                            <li><a class="pointer" rel="external nofollow"><span class="label label-success">Linux</span></a></li>
-                            <li><a class="pointer" rel="external nofollow"><span class="label label-info">Maven</span></a></li>
-                            <li><a class="pointer" rel="external nofollow"><span class="label label-warning">Bootstrap</span></a></li>
-                            <li><a class="pointer" rel="external nofollow"><span class="label label-danger">阿里云</span></a></li>
+                            <#assign lables = ['label-warning','label-primary','label-success','label-info','label-danger']>
+                            <#list keywordsort as k>
+                                <li><a class="pointer" rel="external nofollow"><span class="label ${lables[k_index]}">${k}</span></a></li>
+                            </#list>
                         </ul>
                     </form>
                 </article>

@@ -1,8 +1,11 @@
 package com.yzz.blog;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.socket.config.annotation.EnableWebSocket;
 
 /**
  * 程序启动类
@@ -13,8 +16,11 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
  * @date 2018/4/24 14:37
  * @since 1.0
  */
-@SpringBootApplication
+//// 移除 @SpringBootApplication and @ComponentScan, 用 @EnableAutoConfiguration 来替代
+//@SpringBootApplication
 @ServletComponentScan
+@EnableAutoConfiguration
+@ComponentScan(basePackages = {"com.yzz.blog"})
 public class BlogAdminApplication {
 
     public static void main(String[] args) {

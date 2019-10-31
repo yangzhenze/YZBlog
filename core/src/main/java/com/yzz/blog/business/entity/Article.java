@@ -17,7 +17,7 @@ import java.util.List;
  * @date 2018/4/16 16:26
  * @since 1.0
  */
-public class Article {
+public class  Article {
     private BizArticle bizArticle;
 
     public Article() {

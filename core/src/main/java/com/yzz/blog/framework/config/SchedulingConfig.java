@@ -34,6 +34,6 @@ public class SchedulingConfig implements SchedulingConfigurer {
      */
     @Bean(destroyMethod = "shutdown")
     private Executor newExecutors() {
-        return Executors.newScheduledThreadPool(5, r -> new Thread(r, String.format("OneBlog-Task-%s", integer.incrementAndGet())));
+        return Executors.newScheduledThreadPool(5, r -> new Thread(r, String.format("MyBlog-Task-%s", integer.incrementAndGet())));
     }
 }

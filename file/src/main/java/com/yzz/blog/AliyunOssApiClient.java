@@ -20,7 +20,7 @@ import java.util.Date;
  * @since 1.8
  */
 public class AliyunOssApiClient extends BaseApiClient {
-    private static final String DEFAULT_PREFIX = "oneblog/";
+    private static final String DEFAULT_PREFIX = "myblog/";
     private OssApi ossApi;
     private String url;
     private String bucketName;
