@@ -1,5 +1,8 @@
 package com.test;
 import com.yzz.blog.BlogWebApplication;
+import com.yzz.blog.business.vo.ArticleConditionVO;
+import com.yzz.blog.framework.config.SpringUtil;
+import org.apache.catalina.core.ApplicationContext;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +24,15 @@ import java.util.concurrent.TimeUnit;
 public class BlogWebApplicationTests {
 
     @Autowired
-    RedisTemplate redisTemplate;
+    RedisTemplate<String, Object> redisTemplate;
+
+
+
 
 
     //@Test
     public void testString(){
+
         // 设置key为test,值为test
         redisTemplate.opsForValue().set("key","redis");   //set key redis
         // 获取key为test的值
@@ -83,9 +90,19 @@ public class BlogWebApplicationTests {
 
     }
 
-    //@Test
+    @Test
     public void testHash(){
 
+        /*ArticleConditionVO a = new ArticleConditionVO();
+        String [] beans = SpringUtil.getApplicationContext().getBeanDefinitionNames();
+        for (String bean : beans) {
+            System.out.println(bean);
+        }
+
+
+
+
+        System.out.println(SpringUtil.getApplicationContext());*/
         //设置散列hashKey的值
         redisTemplate.opsForHash().put("redisHash","name","redis"); // hset redisHash name redis
         redisTemplate.opsForHash().put("redisHash","age",12); // hset redisHash age 12
@@ -111,6 +128,8 @@ public class BlogWebApplicationTests {
         //删除该key下对应的hash
         redisTemplate.opsForHash().delete("redisHash","name"); // hdel redisHash name
 
+        System.out.println(redisTemplate.opsForHash().get("keywords","java"));
+
     }
 
     //@Test
@@ -135,14 +154,14 @@ public class BlogWebApplicationTests {
         System.out.println(redisTemplate.opsForSet().pop("set")); // spop set
     }
 
-   @Test
+   //@Test
     public void testZSet(){
         // 添加zset数据
-        /*redisTemplate.opsForZSet().add("zset","a",1); // zadd zset 1 a
+        redisTemplate.opsForZSet().add("zset","a",1); // zadd zset 1 a
         redisTemplate.opsForZSet().add("zset","b",2); // zadd zset 2 b
         redisTemplate.opsForZSet().add("zset","c",3); // zadd zset 3 c
         redisTemplate.opsForZSet().add("zset","d",5); // zadd zset 5 d
-        redisTemplate.opsForZSet().add("zset","e",4); // zadd zset 4 e*/
+        redisTemplate.opsForZSet().add("zset","e",4); // zadd zset 4 e flush
 
         //查看 zset数据
         System.out.println(redisTemplate.opsForZSet().range("zset",0,-1)); // zrange set 0 -1

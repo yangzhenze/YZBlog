@@ -8,17 +8,17 @@ MAINTAINER yzz
 VOLUME /tmp
 
 #复制上下文目录下的target/demo-1.0.0.jar 到容器里
-COPY target/blog-admin-1.0.0.jar blog-admin-1.0.0.jar
+COPY target/blog-admin.jar blog-admin.jar
 
 #bash方式执行，使demo-1.0.0.jar可访问
 #RUN新建立一层，在其上执行这些命令，执行结束后， commit 这一层的修改，构成新的镜像。
-RUN bash -c "touch /blog-admin-1.0.0.jar"
+RUN bash -c "touch /blog-admin.jar"
 
 #声明运行时容器提供服务端口，这只是一个声明，在运行时并不会因为这个声明应用就会开启这个端口的服务
 EXPOSE 8085
 
 #指定容器启动程序及参数   <ENTRYPOINT> "<CMD>"
-ENTRYPOINT ["java","-jar","blog-admin-1.0.0.jar"]
-# docker run -d -p 9011:8085  -it -v /home/blog:/home/app admin:1.0.1
+ENTRYPOINT ["java","-jar","blog-admin.jar"]
+# docker run -d -p 81:8085  -it -v /home/blog:/home/app admin:1.0.1
 # sudo docker exec -it containerID /bin/bash
 # docker logs -f -t --since="2017-05-31" --tail=10 edu_web_1

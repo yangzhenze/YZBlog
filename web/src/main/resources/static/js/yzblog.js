@@ -216,7 +216,7 @@ $(function () {
         type: 'down'
     });
 
-    $("[data-toggle='tooltip']").tooltip();
+    // $("[data-toggle='tooltip']").tooltip();
     $('[data-toggle="popover"]').popover();
 
     // 图片预览

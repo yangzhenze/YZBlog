@@ -69,7 +69,7 @@
     <#if footerHtml>
         <footer>
             <div class="pull-right">
-                Copyright © 2019 <a href="https://www.zhyd.me" target="_blank">zhenze.yang</a> · Powered by <strong>Y·Z Blog</strong>. All Rights Reserved.
+                Copyright © 2019 <a href="https://www.yzblog.club" target="_blank">zhenze.yang</a> · Powered by <strong>Y·Z Blog</strong>. All Rights Reserved.闽ICP备19023374号
             </div>
             <div class="clearfix"></div>
         </footer>
@@ -156,7 +156,7 @@
                                             </div>
                                         </div>
                                         <div class="item form-group">
-                                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="mobile">标签(*3) <span class="required">*</span></label>
+                                            <label class="control-label col-md-2 col-sm-2 col-xs-12" for="mobile">标签 <span class="required">*</span></label>
                                             <div class="col-md-9 col-sm-9 col-xs-12">
                                                 <input type="text" name="tags" target="tagsinput" data-bind-box="#tags-list">
                                                 <ul class="list-unstyled list-inline tags-list" id="tags-list" target="combox" data-url="/tag/listAll" data-method="post" style="max-height: 150px;overflow-y: scroll;"></ul>

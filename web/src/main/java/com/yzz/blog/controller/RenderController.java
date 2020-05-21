@@ -35,7 +35,7 @@ public class RenderController {
     private static final int SIDEBAR_ARTICLE_SIZE = 8;
     private static final String INDEX_URL = "index";
     private static final String REDIS_KEYWORD = "keywords";
-    private static final String REDIS_KEYWORD_SORT = "keywordsort";
+    private static final String REDIS_KEYWORD_SORT = "keywordSort";
 
     @Autowired
     private BizArticleService bizArticleService;
@@ -61,7 +61,7 @@ public class RenderController {
         model.addAttribute("page", pageInfo);
         model.addAttribute("model", vo);
         model.addAttribute("indexLinkList", sysLinkService.listOfIndex());
-        model.addAttribute("keywordsort", redisTemplate.opsForZSet().reverseRangeByScore(REDIS_KEYWORD_SORT,0,100000,0,5));
+        model.addAttribute(REDIS_KEYWORD_SORT, redisTemplate.opsForZSet().reverseRangeByScore(REDIS_KEYWORD_SORT,0,100000,0,5));
 
 
     }
@@ -87,11 +87,10 @@ public class RenderController {
 
             if(null == searchNum){
                 searchNum = 1;
-                redisTemplate.opsForHash().put(REDIS_KEYWORD,keyword,searchNum);
             }else{
                 searchNum+=1;
             }
-
+            redisTemplate.opsForHash().put(REDIS_KEYWORD,keyword,searchNum);
             redisTemplate.opsForZSet().add(REDIS_KEYWORD_SORT,keyword,searchNum);
         }
 

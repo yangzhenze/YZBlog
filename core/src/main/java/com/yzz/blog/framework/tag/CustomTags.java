@@ -87,6 +87,12 @@ public class CustomTags extends BaseTag {
 
     public Object random(Map params) {
         int max = NumberUtils.parseNumber(getParam(params, "max"), Integer.class);
+        String type = getParam(params,"type");
+        if(!StringUtils.isEmpty(type)){
+            if("int".equals(type)){
+                return randoms.nextInt(max);
+            }
+        }
         int min = NumberUtils.parseNumber(getParam(params, "min"), Integer.class);
         return df.format(randoms.nextInt(max) % (max - min + 1) + min + Math.random());
     }
@@ -98,5 +104,21 @@ public class CustomTags extends BaseTag {
 
     public Object sessionTimeOutUnit(Map params) {
         return TimeUnit.values();
+    }
+
+    public static void main(String[] args) {
+        Random randoms = new Random();
+        DecimalFormat df = new DecimalFormat("#.##");
+        System.out.println(randoms.nextInt(5));
+        System.out.println(randoms.nextInt(5));
+        System.out.println(randoms.nextInt(5));
+        System.out.println(randoms.nextInt(5));
+        System.out.println(randoms.nextInt(5));
+        System.out.println(randoms.nextInt(5));
+        System.out.println(randoms.nextInt(5));
+        System.out.println(randoms.nextInt(5));
+        System.out.println(randoms.nextInt(5));
+        System.out.println(randoms.nextInt(5));
+        System.out.println(randoms.nextInt(5));
     }
 }

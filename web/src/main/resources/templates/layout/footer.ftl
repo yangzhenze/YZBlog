@@ -19,7 +19,7 @@
                     <ul class="list-unstyled list-inline search-hot">
                         <li><strong style="position: relative;top: 2px;color: #999999;">热门搜索：</strong></li>
                         <#assign lables = ['label-warning','label-primary','label-success','label-info','label-danger']>
-                        <#list keywordsort as k>
+                        <#list keywordSort as k>
                             <li><a class="pointer" rel="external nofollow"><span class="label ${lables[k_index]}">${k}</span></a></li>
                         </#list>
                     </ul>
@@ -104,7 +104,7 @@
     <div class="container">
         <div class="row">
             <div class="col col-xs-12 col-md-12 col-lg-12">
-                <p>Copyright © 2019 zhenze.yang · Powered by Y·Z Blog. All Rights Reserved.
+                <p>Copyright © 2019 zhenze.yang · Powered by Y·Z Blog. All Rights Reserved.<a href="http://beian.miit.gov.cn">闽ICP备19023374号</a>
                 </p>
             </div>
             <div class="col col-md-4"></div>

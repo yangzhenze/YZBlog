@@ -6,4 +6,5 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.1/css/bootstrapValidator.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
     <link href="${config.staticWebSite}/css/core.css" rel="stylesheet" type="text/css">
+    <link href="${config.staticWebSite}/css/playground.css" rel="stylesheet" type="text/css">
     <link href="${config.staticWebSite}/css/comment.css" rel="stylesheet" type="text/css">

@@ -113,7 +113,7 @@
                         <ul class="list-unstyled list-inline search-hot">
                             <li><strong style="position: relative;top: 2px;color: #999999;">热门搜索：</strong></li>
                             <#assign lables = ['label-warning','label-primary','label-success','label-info','label-danger']>
-                            <#list keywordsort as k>
+                            <#list keywordSort as k>
                                 <li><a class="pointer" rel="external nofollow"><span class="label ${lables[k_index]}">${k}</span></a></li>
                             </#list>
                         </ul>
